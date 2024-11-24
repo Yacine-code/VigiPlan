@@ -1,0 +1,11 @@
+<h1>Liste des agents</h1>
+<a href="{% url 'agent-create' %}">Ajouter un agent</a>
+<ul>
+    {% for agent in agents %}
+        <li>
+            {{ agent.prenom }} {{ agent.nom }} - {{ agent.email }}
+            <a href="{% url 'agent-update' agent.pk %}">Modifier</a>
+            <a href="{% url 'agent-delete' agent.pk %}">Supprimer</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,10 @@
+<h1>Liste des prestations</h1>
+<a href="{% url 'prestation-create' %}">Ajouter une prestation</a>
+<ul>
+    {% for prestation in prestations %}
+        <li>
+            {{ prestation.nom }} - {{ prestation.site.nom }}
+            <a href="{% url 'prestation-update' prestation.pk %}">Modifier</a>
+        </li>
+    {% endfor %}
+</ul>

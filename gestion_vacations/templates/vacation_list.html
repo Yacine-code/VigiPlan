@@ -1,0 +1,11 @@
+<h1>Liste des vacations</h1>
+<a href="{% url 'vacation-create' %}">Ajouter une vacation</a>
+<ul>
+    {% for vacation in vacations %}
+        <li>
+            {{ vacation.date }} ({{ vacation.heure_debut }} - {{ vacation.heure_fin }}) - 
+            {{ vacation.agent or "Non affectée" }}
+            <a href="{% url 'assign-agent' vacation.pk %}">Affecter un agent</a>
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,7 @@
+<h1>Confirmer la suppression</h1>
+<p>Êtes-vous sûr de vouloir supprimer cette vacation ?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Oui</button>
+    <a href="{% url 'vacation-list' %}">Annuler</a>
+</form>
