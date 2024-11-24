@@ -1,0 +1,35 @@
+# Environnements virtuels
+venv/
+env/
+
+# Fichiers Python compilés
+*.pyc
+__pycache__/
+
+# Logs
+*.log
+
+# Configurations locales
+.env
+
+# Fichiers de base de données SQLite
+db.sqlite3
+
+# Dossiers de migration
+*/migrations/
+
+# Dépendances Python
+*.egg-info/
+pip-log.txt
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Tailwind CSS
+.next/
+dist/
+
+# Autres fichiers inutiles
+.DS_Store
+Thumbs.db
