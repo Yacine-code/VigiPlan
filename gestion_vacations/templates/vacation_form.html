@@ -1,6 +1,9 @@
+<!-- Titre de la page pour ajouter ou modifier une vacation -->
 <h1>Ajouter / Modifier une vacation</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enregistrer</button>
+
+<!-- Début du formulaire -->
+<form method="post"> <!-- Formulaire envoyé via une requête POST -->
+    {% csrf_token %} <!-- Protection CSRF pour sécuriser le formulaire -->
+    {{ form.as_p }} <!-- Rendu automatique du formulaire Django sous forme de paragraphes -->
+    <button type="submit">Enregistrer</button> <!-- Bouton pour soumettre le formulaire -->
 </form>

@@ -1,7 +1,13 @@
+<!-- Titre de la page -->
 <h1>Confirmer la suppression</h1>
+
+<!-- Message de confirmation -->
 <p>Êtes-vous sûr de vouloir supprimer cet agent ?</p>
+
+<!-- Formulaire pour confirmer la suppression -->
 <form method="post">
-    {% csrf_token %}
-    <button type="submit">Oui</button>
+    {% csrf_token %} <!-- Protection contre les attaques CSRF -->
+    <button type="submit">Oui</button> <!-- Bouton pour confirmer -->
+    <!-- Lien pour annuler et revenir à la liste des agents -->
     <a href="{% url 'agent-list' %}">Annuler</a>
 </form>

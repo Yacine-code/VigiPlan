@@ -1,10 +1,18 @@
+<!-- Titre de la page pour afficher la liste des vacations -->
 <h1>Liste des vacations</h1>
+
+<!-- Lien pour accéder à la page d'ajout d'une nouvelle vacation -->
 <a href="{% url 'vacation-create' %}">Ajouter une vacation</a>
+
+<!-- Liste des vacations -->
 <ul>
-    {% for vacation in vacations %}
+    {% for vacation in vacations %} <!-- Boucle sur la liste des vacations -->
         <li>
+            <!-- Affichage de la date, des heures, et de l'agent affecté ou d'un message si non affectée -->
             {{ vacation.date }} ({{ vacation.heure_debut }} - {{ vacation.heure_fin }}) - 
             {{ vacation.agent or "Non affectée" }}
+
+            <!-- Lien pour affecter un agent à la vacation -->
             <a href="{% url 'assign-agent' vacation.pk %}">Affecter un agent</a>
         </li>
     {% endfor %}

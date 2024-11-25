@@ -1,0 +1,18 @@
+<!-- Titre de la page pour afficher la liste des prestations -->
+<h1>Liste des prestations</h1>
+
+<!-- Lien pour accéder à la page d'ajout d'une nouvelle prestation -->
+<a href="{% url 'prestation-create' %}">Ajouter une prestation</a>
+
+<!-- Liste des prestations -->
+<ul>
+    {% for prestation in prestations %} <!-- Boucle pour afficher chaque prestation dans la liste -->
+        <li>
+            <!-- Affichage du nom de la prestation et du site associé -->
+            {{ prestation.nom }} - {{ prestation.site.nom }}
+
+            <!-- Lien pour modifier la prestation -->
+            <a href="{% url 'prestation-update' prestation.pk %}">Modifier</a>
+        </li>
+    {% endfor %}
+</ul>

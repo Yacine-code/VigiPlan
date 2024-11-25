@@ -1,7 +1,12 @@
+<!-- Titre de la page pour confirmer la suppression -->
 <h1>Confirmer la suppression</h1>
+
+<!-- Message demandant la confirmation -->
 <p>Êtes-vous sûr de vouloir supprimer cette vacation ?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Oui</button>
-    <a href="{% url 'vacation-list' %}">Annuler</a>
+
+<!-- Formulaire de confirmation -->
+<form method="post"> <!-- Formulaire envoyé via une requête POST -->
+    {% csrf_token %} <!-- Token CSRF pour protéger contre les attaques -->
+    <button type="submit">Oui</button> <!-- Bouton pour confirmer la suppression -->
+    <a href="{% url 'vacation-list' %}">Annuler</a> <!-- Lien pour revenir à la liste sans supprimer -->
 </form>

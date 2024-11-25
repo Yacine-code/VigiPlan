@@ -1,0 +1,18 @@
+<!-- Titre de la page pour afficher la liste des sites -->
+<h1>Liste des sites</h1>
+
+<!-- Lien pour accéder à la page d'ajout d'un nouveau site -->
+<a href="{% url 'site-create' %}">Ajouter un site</a>
+
+<!-- Liste des sites -->
+<ul>
+    {% for site in sites %} <!-- Boucle sur la liste des sites -->
+        <li>
+            <!-- Affichage du nom du site et de la ville -->
+            {{ site.nom }} - {{ site.ville }}
+
+            <!-- Lien pour modifier le site -->
+            <a href="{% url 'site-update' site.pk %}">Modifier</a>
+        </li>
+    {% endfor %}
+</ul>

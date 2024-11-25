@@ -1,6 +1,9 @@
+<!-- Titre de la page pour affecter un agent à une vacation -->
 <h1>Affecter un agent</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Affecter</button>
+
+<!-- Début du formulaire -->
+<form method="post"> <!-- Formulaire envoyé via une requête POST -->
+    {% csrf_token %} <!-- Protection CSRF pour sécuriser le formulaire -->
+    {{ form.as_p }} <!-- Rendu automatique du formulaire Django sous forme de paragraphes -->
+    <button type="submit">Affecter</button> <!-- Bouton pour soumettre le formulaire -->
 </form>

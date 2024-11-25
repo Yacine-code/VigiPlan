@@ -1,0 +1,12 @@
+<!-- Titre de la page de confirmation de suppression -->
+<h1>Confirmer la suppression</h1>
+
+<!-- Message demandant la confirmation de suppression -->
+<p>Êtes-vous sûr de vouloir supprimer cette prestation ?</p>
+
+<!-- Formulaire pour confirmer la suppression -->
+<form method="post"> <!-- Formulaire envoyé via une requête POST -->
+    {% csrf_token %} <!-- Token CSRF pour sécuriser la suppression -->
+    <button type="submit">Oui</button> <!-- Bouton pour confirmer la suppression -->
+    <a href="{% url 'prestation-list' %}">Annuler</a> <!-- Lien pour annuler et revenir à la liste des prestations -->
+</form>

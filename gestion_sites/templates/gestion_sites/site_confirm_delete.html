@@ -1,7 +1,0 @@
-<h1>Confirmer la suppression</h1>
-<p>Êtes-vous sûr de vouloir supprimer ce site ?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Oui</button>
-    <a href="{% url 'site-list' %}">Annuler</a>
-</form>

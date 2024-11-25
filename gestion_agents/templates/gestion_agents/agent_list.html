@@ -1,10 +1,20 @@
+<!-- Titre de la page -->
 <h1>Liste des agents</h1>
+
+<!-- Lien pour accéder à la page d'ajout d'un nouvel agent -->
 <a href="{% url 'agent-create' %}">Ajouter un agent</a>
+
+<!-- Liste des agents -->
 <ul>
-    {% for agent in agents %}
+    {% for agent in agents %} <!-- Boucle sur la liste des agents -->
         <li>
+            <!-- Affichage des informations de l'agent -->
             {{ agent.prenom }} {{ agent.nom }} - {{ agent.email }}
+
+            <!-- Lien pour modifier l'agent -->
             <a href="{% url 'agent-update' agent.pk %}">Modifier</a>
+
+            <!-- Lien pour supprimer l'agent -->
             <a href="{% url 'agent-delete' agent.pk %}">Supprimer</a>
         </li>
     {% endfor %}

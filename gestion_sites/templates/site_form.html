@@ -1,0 +1,9 @@
+<!-- Titre de la page pour ajouter ou modifier un site -->
+<h1>Ajouter / Modifier un site</h1>
+
+<!-- Début du formulaire -->
+<form method="post"> <!-- Formulaire envoyé via une requête POST -->
+    {% csrf_token %} <!-- Token CSRF pour protéger le formulaire contre les attaques -->
+    {{ form.as_p }} <!-- Rendu du formulaire Django avec chaque champ entouré par un paragraphe -->
+    <button type="submit">Enregistrer</button> <!-- Bouton pour soumettre le formulaire -->
+</form>

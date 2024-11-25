@@ -1,6 +1,9 @@
+<!-- Titre de la page -->
 <h1>Ajouter / Modifier un agent</h1>
+
+<!-- Début du formulaire -->
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enregistrer</button>
+    {% csrf_token %} <!-- Protection contre les attaques CSRF -->
+    {{ form.as_p }} <!-- Affichage du formulaire sous forme de paragraphes -->
+    <button type="submit">Enregistrer</button> <!-- Bouton pour soumettre le formulaire -->
 </form>
