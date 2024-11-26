@@ -8,6 +8,7 @@ from .forms import VacationForm  # Formulaire pour les vacations
 from datetime import timedelta  # Pour manipuler les durées
 from django.http import JsonResponse  # Pour répondre avec des données JSON
 
+
 # Vue pour afficher la liste des vacations
 class VacationListView(ListView):
     model = Vacation
@@ -39,7 +40,7 @@ class VacationDeleteView(DeleteView):
 
 # Vue pour assigner un agent à une vacation
 class AssignAgentView(UpdateView):
-    model = Vacation
+    model = Vacation 
     fields = ['agent']
     template_name = "gestion_vacations/assign_agent_form.html"
     success_url = "/vacations/"
@@ -54,16 +55,29 @@ class VacationUpdateView(UpdateView):
 # API pour récupérer les vacations en format JSON
 def get_vacations(request):
     vacations = Vacation.objects.all()
-    events = [
-        {
-            "title": f"{vacation.agent or 'Non affectée'}",
-            "start": f"{vacation.date}T{vacation.heure_debut}",
-            "end": f"{vacation.date}T{vacation.heure_fin}",
-        }
-        for vacation in vacations
-    ]
+    events = []
+
+    for vacation in vacations:
+        events.append({
+            "title": str(vacation.agent.nom if vacation.agent else "Non affectée"),
+            "start": f"{vacation.date}T{vacation.heure_debut}",  # Format ISO pour la date de début
+            "end": f"{vacation.date}T{vacation.heure_fin}",      # Format ISO pour la date de fin
+        })
+
     return JsonResponse(events, safe=False)
 
 # Vue pour afficher le planning
 def planning_view(request):
-    return render(request, 'planning.html')
+    return render(request, 'gestion_vacations/planning.html')
+
+
+def vacations_json(request):
+    vacations = Vacation.objects.all()
+    events = []
+    for vacation in vacations:
+        events.append({
+            "title": vacation.agent.nom if vacation.agent else "Non affectée",
+            "start": vacation.heure_debut.isoformat(),
+            "end": vacation.heure_fin.isoformat(),
+        })
+    return JsonResponse(events, safe=False)

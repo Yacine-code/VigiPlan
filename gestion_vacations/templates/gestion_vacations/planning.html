@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning</title>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/main.min.css" rel="stylesheet">
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/main.min.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Planning</h1>
+    <!-- Conteneur pour le calendrier -->
+    <div id="calendar" style="margin: 50px;"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+    
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [  // Données statiques pour tester
+                    {
+                        title: 'Événement de test',
+                        start: '2024-11-26T08:00:00',
+                        end: '2024-11-26T16:00:00'
+                    },
+                    {
+                        title: 'Événement 2',
+                        start: '2024-11-27T09:00:00',
+                        end: '2024-11-27T17:00:00'
+                    }
+                ],
+            });
+    
+            calendar.render();
+        });
+    </script>
+    
+</body>
+</html>

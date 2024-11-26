@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'gestion_sites',  # Module de gestion des sites
     'gestion_prestations',  # Module de gestion des prestations
     'gestion_vacations',  # Module de gestion des vacations
+    'tableau_de_bord',
 ]
 
 # Paramètres linguistiques et temporels

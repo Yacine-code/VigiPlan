@@ -10,7 +10,11 @@
         <li>
             <!-- Affichage de la date, des heures, et de l'agent affecté ou d'un message si non affectée -->
             {{ vacation.date }} ({{ vacation.heure_debut }} - {{ vacation.heure_fin }}) - 
-            {{ vacation.agent or "Non affectée" }}
+            {% if vacation.agent %}
+                {{ vacation.agent }}
+            {% else %}
+                Non affectée
+            {% endif %}
 
             <!-- Lien pour affecter un agent à la vacation -->
             <a href="{% url 'assign-agent' vacation.pk %}">Affecter un agent</a>
